@@ -75,8 +75,8 @@ class stock_prices:
             if not any(['Low' in i.values() for i in table_columns]):
                 sql = f'ALTER TABLE {tablename} ADD COLUMN Low FLOAT'
                 sql_statements.append(sql)
-            if not any(['AdjClose' in i.values() for i in table_columns]):
-                sql = f'ALTER TABLE {tablename} ADD COLUMN AdjClose FLOAT'
+            if not any(['Adj_Close' in i.values() for i in table_columns]):
+                sql = f'ALTER TABLE {tablename} ADD COLUMN Adj_Close FLOAT'
                 sql_statements.append(sql)
             if not any(['Volume' in i.values() for i in table_columns]):
                 sql = f'ALTER TABLE {tablename} ADD COLUMN Volume BIGINT'
