@@ -123,7 +123,8 @@ class stock_prices:
         end_ticket_date = df.tail(1).index[0]
         growth_p = (end_price-start_price)/start_price*100
         ticker_years = (end_ticket_date-start_ticket_date).days/365.25
-        print(f'{ticker} growth over the last {ticker_years:,.1f} years, is {growth_p/ticker_years:,.2f}% per year')
+        print(f'{ticker} growth over the last {ticker_years:,.1f} years, is {growth_p/ticker_years:,.2f}% per year. '
+              f'A $100 in would now be worth ${100*growth_p:,.2f}')
 
         if store_data:
             tablename = 'StockPrice'
@@ -135,9 +136,10 @@ if __name__ == '__main__':
     sp = stock_prices()
 
     # set start and end date for the time period we want to fetch data for
-    years = 5
+    years = 10
     sp.get_growth('SP500', years)
     sp.get_growth('Gold', years)
     sp.get_growth('FNZ.NZ', years)
     sp.get_growth('BOT.NZ', years)
     sp.get_growth('LIV.NZ', years)
+    sp.get_growth('NPF.NZ', years)
